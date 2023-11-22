@@ -13,7 +13,7 @@ export const theme = createTheme({
      main: '#082D0E',
      contrastText: '#fff',
     },
-    yellowVoly: {
+    yellow: {
       main:'#FFC000',  
       contrastText: '#fff',
       //dark:'#CC9600',
