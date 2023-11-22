@@ -37,8 +37,10 @@ export const StateContextProvider = ({ children }) => {
     setLoadingMessage(`Transfering ${value} Token`)
     setLoading(true)
     //from ethers 6 : utils is no longer available
-    value=ethers.utils.parseUnits(value, 18)
-    console.log(value, 'feno')
+    //value=ethers.utils.formatEther(value)
+    value=ethers.utils.formatUnits(value,0)
+
+    //console.log(value.toString(), 'feno')
     try {
       const data = await transfer({
 				args: [
@@ -46,6 +48,7 @@ export const StateContextProvider = ({ children }) => {
 					value, // amount of token to be tranfert
 				],
 			});
+     // var data = await contract.ERC20.Transfer(to, value);
 
       console.log("contract call to tranfert token successed", data)
       setLoading(false)
